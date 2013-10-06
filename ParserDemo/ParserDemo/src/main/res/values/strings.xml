@@ -6,6 +6,7 @@
     <string name="start_sax_button">Sax Parser</string>
     <string name="title_activity_sax_parser">Sax Parser Activity</string>
     <string name="numberOfElementsButton">Count number of elements</string>
-
+    <string name="title_activity_json_parser">Json Parser Activity</string>
+    <string name="parse_all_classes_button">Hent alle klasser</string>
 
 </resources>

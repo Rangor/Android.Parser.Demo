@@ -1,4 +1,4 @@
-package no.carbonara.parserdemo.business;
+package no.carbonara.parserdemo.business.SAX;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

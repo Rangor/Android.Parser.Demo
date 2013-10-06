@@ -1,4 +1,4 @@
-package no.carbonara.parserdemo.business;
+package no.carbonara.parserdemo.business.SAX;
 
 import java.net.MalformedURLException;
 import java.net.URL;

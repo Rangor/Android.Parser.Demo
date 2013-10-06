@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import no.carbonara.parserdemo.R;
-import no.carbonara.parserdemo.business.YrParserService;
+import no.carbonara.parserdemo.business.SAX.YrParserService;
 
 public class SaxParserActivity extends Activity {
 

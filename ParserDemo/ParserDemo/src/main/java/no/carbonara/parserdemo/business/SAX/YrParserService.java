@@ -1,4 +1,4 @@
-package no.carbonara.parserdemo.business;
+package no.carbonara.parserdemo.business.SAX;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,6 +13,9 @@ import java.net.URL;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
+
+import no.carbonara.parserdemo.business.SAX.YrParserController;
+import no.carbonara.parserdemo.business.SAX.YrParserSax;
 
 /**
  * Created by martinmi on 06.10.13.
