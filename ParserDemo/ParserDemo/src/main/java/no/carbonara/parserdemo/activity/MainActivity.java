@@ -1,8 +1,10 @@
-package no.carbonara.parserdemo;
+package no.carbonara.parserdemo.activity;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+
+import no.carbonara.parserdemo.R;
 
 public class MainActivity extends Activity {
 
