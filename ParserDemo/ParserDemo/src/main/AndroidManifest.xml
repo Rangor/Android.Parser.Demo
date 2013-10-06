@@ -29,7 +29,7 @@
             android:label="@string/title_activity_sax_parser" >
         </activity>
         <activity
-            android:name="no.carbonara.parserdemo.JsonParserActivity"
+            android:name="no.carbonara.parserdemo.activity.JsonParserActivity"
             android:label="@string/title_activity_json_parser" >
         </activity>
     </application>

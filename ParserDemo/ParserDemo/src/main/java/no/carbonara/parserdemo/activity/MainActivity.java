@@ -27,5 +27,8 @@ public class MainActivity extends Activity {
     public void startSaxParserButtonClick(View target){
         startActivity(new Intent(this, SaxParserActivity.class));
     }
-    
+
+    public void startJsonParserButtonClick(View target){
+        startActivity(new Intent(this, JsonParserActivity.class));
+    }
 }
