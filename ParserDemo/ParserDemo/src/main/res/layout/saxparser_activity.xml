@@ -9,9 +9,27 @@
     tools:context=".SaxParserActivity">
 
     <Button
+        android:id="@+id/saxParseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="numberOfElementsClick"
+        android:layout_centerHorizontal="true"
         android:text="@string/numberOfElementsButton" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/saxParseButton"
+        android:layout_centerHorizontal="true"
+        >
+    <TextView
+        android:id="@+id/saxResultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dip"
+
+        />
+    </ScrollView>
 
 </RelativeLayout>

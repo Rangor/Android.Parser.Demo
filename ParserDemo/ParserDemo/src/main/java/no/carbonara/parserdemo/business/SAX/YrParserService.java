@@ -10,6 +10,7 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -51,5 +52,34 @@ public class YrParserService {
         }
 
         return 0;
+    }
+
+    public ArrayList<String> getForecastTextArrayList() throws IOException, URISyntaxException, SAXException, ParserConfigurationException {
+
+        SAXParserFactory saxParserFactory;
+        URL newUrl = null;
+        YrParserSax xmlHandler;
+        saxParserFactory = SAXParserFactory.newInstance();
+        xmlHandler = new YrParserSax();
+        newUrl = new URL(trondheimUrlString);
+        HttpClient httpClient = new DefaultHttpClient();
+        HttpGet httpGet = new HttpGet(newUrl.toString());
+        HttpResponse response = null;
+        response = httpClient.execute(httpGet);
+
+
+        if (response.getStatusLine().getStatusCode() == 200) {
+            YrParserController parseController;
+
+            parseController = new YrParserController(saxParserFactory.newSAXParser(), xmlHandler);
+            parseController.xmlReader.parse(new InputSource(response.getEntity().getContent()));
+
+            YrParserSax data = (YrParserSax) parseController.handler;
+
+            return data.getForecastTextList();
+
+        }
+
+        return null;
     }
 }

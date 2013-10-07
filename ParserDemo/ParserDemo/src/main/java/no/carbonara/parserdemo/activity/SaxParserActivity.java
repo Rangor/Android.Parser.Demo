@@ -6,11 +6,13 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -20,11 +22,16 @@ import no.carbonara.parserdemo.business.SAX.YrParserService;
 public class SaxParserActivity extends Activity {
 
     private int numberOfElements = 0;
+    private ArrayList<String> foreCastArrayList = new ArrayList<String>();
+
+    private TextView saxParserResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.saxparser_activity);
+
+        saxParserResult = (TextView)findViewById(R.id.saxResultText);
     }
 
 
@@ -48,6 +55,7 @@ public class SaxParserActivity extends Activity {
             YrParserService service = new YrParserService();
             try {
                numberOfElements =  service.getNumberOfForecastXmlElements();
+               foreCastArrayList = service.getForecastTextArrayList();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (URISyntaxException e) {
@@ -62,8 +70,9 @@ public class SaxParserActivity extends Activity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            String ans = "" + numberOfElements;
-            Log.d("Testing", ans);
+            Log.d("Testing", numberOfElements +"");
+            Log.d("Testing", foreCastArrayList.size() +"");
+            saxParserResult.setText(foreCastArrayList.toString());
         }
     }
 }
