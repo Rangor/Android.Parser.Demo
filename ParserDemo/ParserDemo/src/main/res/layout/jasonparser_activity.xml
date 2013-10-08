@@ -9,9 +9,37 @@
     tools:context=".JsonParserActivity">
 
     <Button
+        android:id="@+id/getClassesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="getAllClassesClick"
+        android:layout_centerHorizontal="true"
         android:text="@string/parse_all_classes_button" />
+
+    <Button
+        android:id="@+id/formatClassesButton"
+        android:layout_below="@id/getClassesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="formatAllClassesClick"
+        android:layout_centerHorizontal="true"
+        android:text="@string/format_json_classes" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/formatClassesButton"
+        android:layout_centerHorizontal="true"
+        >
+        <TextView
+            android:id="@+id/jsonResultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dip"
+
+            />
+    </ScrollView>
 
 </RelativeLayout>

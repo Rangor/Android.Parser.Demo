@@ -9,5 +9,6 @@
     <string name="numberOfElementsButton">Count number of elements</string>
     <string name="title_activity_json_parser">Json Parser Activity</string>
     <string name="parse_all_classes_button">Hent alle klasser</string>
+    <string name="format_json_classes">Formater klasser</string>
 
 </resources>

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,13 +17,17 @@ import no.carbonara.parserdemo.business.JSON.NtnuJsonFetcher;
 
 public class JsonParserActivity extends Activity {
 
-    JSONObject allClassesObject;
-    JSONArray allClassesArray;
+    private JSONObject allClassesObject;
+    private JSONArray allClassesArray;
+
+    private TextView jsonAnswerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jasonparser_activity);
+
+        jsonAnswerText = (TextView)findViewById(R.id.jsonResultText);
     }
 
 
@@ -37,6 +42,18 @@ public class JsonParserActivity extends Activity {
         GetAllClassesTask task = new GetAllClassesTask();
         task.execute();
     }
+    public void formatAllClassesClick(View target) throws JSONException {
+        String allClassesFormatedString = "";
+        int length = allClassesArray.length();
+        for(int i = 0; i < allClassesArray.length(); i++){
+            JSONObject courseObj = allClassesArray.getJSONObject(i);
+            String code = courseObj.getString("code");
+            String name = courseObj.getString("name");
+            allClassesFormatedString = allClassesFormatedString + code + " " + name + "\n";
+        }
+        jsonAnswerText.setText(allClassesFormatedString);
+    }
+
 
     private class GetAllClassesTask extends AsyncTask<Void, Void, Void>{
 
@@ -55,6 +72,7 @@ public class JsonParserActivity extends Activity {
         protected void onPostExecute(Void aVoid) {
             String ans = "" + allClassesArray.length();
             Log.d("Testing", ans);
+            jsonAnswerText.setText(allClassesArray.toString());
         }
     }
     
